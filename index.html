@@ -40,8 +40,13 @@
     .card.wrong{background:var(--color-error-soft);border-color:color-mix(in oklab,var(--color-error) 60%,transparent);color:var(--color-error);box-shadow:0 0 0 3px color-mix(in oklab,var(--color-error) 14%,transparent)}
     .word-main{display:block}.word-translation{display:block;font-size:.75rem;font-weight:600;opacity:.85;color:var(--color-text-muted)} .card.matched .word-translation{color:currentColor;opacity:.9}
     .status{margin-top:var(--space-4);color:var(--color-text-muted);font-size:var(--text-sm)}
-    .list-panel{margin-top:var(--space-6);padding:clamp(1.25rem,2vw,1.75rem)} .list-panel h2{margin:0 0 var(--space-2);font-size:var(--text-lg);letter-spacing:-.04em}.list-panel p{margin:0 0 var(--space-4);color:var(--color-text-muted)} .pairs-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem 1rem;padding:0;list-style:none}.pairs-list li{background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:.8rem .9rem;display:flex;justify-content:space-between;gap:1rem;font-size:var(--text-sm)} .pairs-list strong{font-weight:800}
-    @media (max-width:900px){.hero{grid-template-columns:1fr}.pairs-list{grid-template-columns:1fr}}
+    
+    /* Приховуємо Word bank */
+    .list-panel {
+      display: none;
+    }
+    
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
     @media (max-width:680px){.shell{width:min(100% - 1rem,1180px);padding-top:.75rem}.board{grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem}.card{min-height:78px;padding:.55rem .35rem;font-size:.84rem}.word-translation{font-size:.68rem}.stats{grid-template-columns:1fr 1fr}.topbar{align-items:stretch}}
     @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
   </style>
@@ -79,6 +84,7 @@
         <div class="board" id="board" role="grid" aria-label="German antonym matching board 6 by 6"></div>
         <div class="status" id="statusText">Pick one card, then click its antonym.</div>
       </section>
+      <!-- Word bank прихований CSS-ом, але код залишився для майбутніх змін -->
       <section class="panel list-panel" aria-labelledby="pairsTitle">
         <h2 id="pairsTitle">Word bank</h2>
         <p>The game uses 50 German adjectives with English meanings, while each round randomly pulls 18 pairs for the 6 × 6 board.</p>
