@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>German Antonym Match 6x6</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+      --radius-sm: 0.5rem; --radius-md: 0.9rem; --radius-lg: 1.2rem; --radius-full: 9999px;
+      --color-bg: #f7f6f2; --color-surface: #fbfbf8; --color-surface-2: #f0eee8; --color-border: rgba(40,37,29,0.12);
+      --color-text: #28251d; --color-text-muted: #6f6d67; --color-primary: #01696f; --color-primary-soft: #d8eceb; --color-success: #437a22; --color-success-soft: #d8ead0; --color-error: #a13544; --color-error-soft: #f3dce0;
+      --color-shadow: 0 16px 40px rgba(35,31,24,0.08); --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+    [data-theme="dark"] {
+      --color-bg: #171614; --color-surface: #1d1c19; --color-surface-2: #25231f; --color-border: rgba(255,255,255,0.12);
+      --color-text: #ece7db; --color-text-muted: #afaa9f; --color-primary: #58a8ad; --color-primary-soft: rgba(88,168,173,0.16); --color-success: #78b655; --color-success-soft: rgba(120,182,85,0.18); --color-error: #dd6974; --color-error-soft: rgba(221,105,116,0.18);
+      --color-shadow: 0 18px 42px rgba(0,0,0,0.28);
+    }
+    *,*::before,*::after{box-sizing:border-box} html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth} body{margin:0;min-height:100vh;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:radial-gradient(circle at top left,rgba(1,105,111,.12),transparent 34%),radial-gradient(circle at bottom right,rgba(67,122,34,.08),transparent 28%),var(--color-bg)} button{font:inherit;cursor:pointer}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+    .shell{width:min(1180px,calc(100% - 2rem));margin:0 auto;padding:1.25rem 0 2.5rem}.skip-link{position:absolute;left:-9999px;top:auto}.skip-link:focus{left:1rem;top:1rem;z-index:1000;background:var(--color-surface);padding:.75rem 1rem;border-radius:var(--radius-sm)}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:var(--space-4);margin-bottom:var(--space-6);flex-wrap:wrap}.brand{display:inline-flex;align-items:center;gap:var(--space-3);font-weight:800;letter-spacing:-.03em}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--color-primary),#7eb5b7);display:grid;place-items:center;color:#fff;box-shadow:var(--color-shadow);flex:0 0 auto}
+    .top-actions{display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap}.icon-btn,.primary-btn{min-width:44px;min-height:44px;border-radius:var(--radius-full);border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);transition:transform 180ms ease,background 180ms ease,border-color 180ms ease}.primary-btn{padding:.8rem 1.2rem;background:var(--color-primary);color:#fff;border-color:transparent;font-weight:700}.icon-btn:hover,.primary-btn:hover{transform:translateY(-1px)}
+    .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--space-5);align-items:stretch;margin-bottom:var(--space-6)} .panel{background:color-mix(in oklab,var(--color-surface) 92%,white 8%);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--color-shadow)} .intro{padding:clamp(1.25rem,2vw,2rem)}
+    .eyebrow{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .85rem;border-radius:var(--radius-full);background:var(--color-primary-soft);color:var(--color-primary);font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:var(--space-4)}
+    h1{margin:0 0 var(--space-3);font-size:var(--text-xl);line-height:1.08;letter-spacing:-.05em}.intro p{margin:0;color:var(--color-text-muted);max-width:58ch}.hint{margin-top:var(--space-4);padding:.85rem 1rem;border-radius:var(--radius-md);background:var(--color-success-soft);color:var(--color-success);font-size:var(--text-sm);font-weight:700}
+    .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3);padding:clamp(1.25rem,2vw,1.75rem)} .stat{padding:1rem;border-radius:var(--radius-md);background:var(--color-surface-2);border:1px solid var(--color-border)} .stat-label{display:block;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-muted);margin-bottom:.45rem}.stat-value{font-size:var(--text-lg);font-weight:800;font-variant-numeric:tabular-nums lining-nums}
+    .board-wrap{padding:var(--space-4)} .board{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.75rem}
+    .card{position:relative;min-height:88px;border-radius:var(--radius-md);border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);padding:.75rem .5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:700;line-height:1.15;box-shadow:0 6px 16px rgba(0,0,0,.04);transition:transform 180ms ease,border-color 180ms ease,background 180ms ease,color 180ms ease,box-shadow 180ms ease;gap:.2rem}
+    .card:hover{transform:translateY(-2px)} .card:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px}.card.selected{border-color:var(--color-primary);background:var(--color-primary-soft)} .card.matched{background:var(--color-success-soft);border-color:color-mix(in oklab,var(--color-success) 60%,transparent);color:var(--color-success)} .card.matched::after{content:'✓';position:absolute;inset:auto 10px 10px auto;font-size:.95rem;opacity:.85}
+    .card.wrong{background:var(--color-error-soft);border-color:color-mix(in oklab,var(--color-error) 60%,transparent);color:var(--color-error);box-shadow:0 0 0 3px color-mix(in oklab,var(--color-error) 14%,transparent)}
+    .word-main{display:block}.word-translation{display:block;font-size:.75rem;font-weight:600;opacity:.85;color:var(--color-text-muted)} .card.matched .word-translation{color:currentColor;opacity:.9}
+    .status{margin-top:var(--space-4);color:var(--color-text-muted);font-size:var(--text-sm)}
+    .list-panel{margin-top:var(--space-6);padding:clamp(1.25rem,2vw,1.75rem)} .list-panel h2{margin:0 0 var(--space-2);font-size:var(--text-lg);letter-spacing:-.04em}.list-panel p{margin:0 0 var(--space-4);color:var(--color-text-muted)} .pairs-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem 1rem;padding:0;list-style:none}.pairs-list li{background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:.8rem .9rem;display:flex;justify-content:space-between;gap:1rem;font-size:var(--text-sm)} .pairs-list strong{font-weight:800}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.pairs-list{grid-template-columns:1fr}}
+    @media (max-width:680px){.shell{width:min(100% - 1rem,1180px);padding-top:.75rem}.board{grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem}.card{min-height:78px;padding:.55rem .35rem;font-size:.84rem}.word-translation{font-size:.68rem}.stats{grid-template-columns:1fr 1fr}.topbar{align-items:stretch}}
+    @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#game">Skip to game</a>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand" aria-label="German Antonym Match logo">
+        <div class="logo" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14"></path><path d="M5 17h14"></path><path d="M8 7c0 5-2 8-3 10"></path><path d="M16 17c0-5 2-8 3-10"></path></svg></div>
+        <span>German Antonym Match 6×6</span>
+      </div>
+      <div class="top-actions">
+        <button class="icon-btn" data-theme-toggle aria-label="Switch theme"><span aria-hidden="true">◐</span></button>
+        <button class="primary-btn" id="shuffleBtn">New 6×6 board</button>
+      </div>
+    </header>
+    <main id="game">
+      <section class="hero">
+        <article class="panel intro">
+          <div class="eyebrow">GitHub Pages game</div>
+          <h1>Match German antonyms and unlock English translations</h1>
+          <p>Each round shows 36 cards, which means 18 full antonym pairs. A correct match turns both cards green, and a wrong match flashes red before both cards reset.</p>
+          <div class="hint">When all 18 pairs are solved, the game automatically loads a fresh set of words for the next round.</div>
+        </article>
+        <aside class="panel stats" aria-label="Game stats">
+          <div class="stat"><span class="stat-label">Round</span><span class="stat-value" id="roundValue">1</span></div>
+          <div class="stat"><span class="stat-label">Board</span><span class="stat-value">36 cards</span></div>
+          <div class="stat"><span class="stat-label">Matches</span><span class="stat-value" id="matchedValue">0 / 18</span></div>
+          <div class="stat"><span class="stat-label">Reward</span><span class="stat-value">EN translation</span></div>
+        </aside>
+      </section>
+      <section class="panel board-wrap" aria-labelledby="boardTitle">
+        <h2 id="boardTitle" class="sr-only">6 by 6 game board</h2>
+        <div class="board" id="board" role="grid" aria-label="German antonym matching board 6 by 6"></div>
+        <div class="status" id="statusText">Pick one card, then click its antonym.</div>
+      </section>
+      <section class="panel list-panel" aria-labelledby="pairsTitle">
+        <h2 id="pairsTitle">Word bank</h2>
+        <p>The game uses 50 German adjectives with English meanings, while each round randomly pulls 18 pairs for the 6 × 6 board.</p>
+        <ol class="pairs-list" id="pairsList"></ol>
+      </section>
+    </main>
+  </div>
+  <script>
+    const allPairs = [
+      { de1:'groß', en1:'big', de2:'klein', en2:'small' },
+      { de1:'alt', en1:'old', de2:'jung', en2:'young' },
+      { de1:'gut', en1:'good', de2:'schlecht', en2:'bad' },
+      { de1:'schnell', en1:'fast', de2:'langsam', en2:'slow' },
+      { de1:'heiß', en1:'hot', de2:'kalt', en2:'cold' },
+      { de1:'leicht', en1:'light', de2:'schwer', en2:'heavy' },
+      { de1:'hell', en1:'bright', de2:'dunkel', en2:'dark' },
+      { de1:'stark', en1:'strong', de2:'schwach', en2:'weak' },
+      { de1:'reich', en1:'rich', de2:'arm', en2:'poor' },
+      { de1:'freundlich', en1:'friendly', de2:'unfreundlich', en2:'unfriendly' },
+      { de1:'laut', en1:'loud', de2:'leise', en2:'quiet' },
+      { de1:'früh', en1:'early', de2:'spät', en2:'late' },
+      { de1:'nah', en1:'near', de2:'fern', en2:'far' },
+      { de1:'sauber', en1:'clean', de2:'schmutzig', en2:'dirty' },
+      { de1:'teuer', en1:'expensive', de2:'billig', en2:'cheap' },
+      { de1:'offen', en1:'open', de2:'geschlossen', en2:'closed' },
+      { de1:'trocken', en1:'dry', de2:'nass', en2:'wet' },
+      { de1:'glücklich', en1:'happy', de2:'traurig', en2:'sad' },
+      { de1:'einfach', en1:'easy', de2:'schwierig', en2:'difficult' },
+      { de1:'hoch', en1:'high', de2:'niedrig', en2:'low' },
+      { de1:'neu', en1:'new', de2:'altmodisch', en2:'old-fashioned' },
+      { de1:'breit', en1:'wide', de2:'schmal', en2:'narrow' },
+      { de1:'hart', en1:'hard', de2:'weich', en2:'soft' },
+      { de1:'gesund', en1:'healthy', de2:'krank', en2:'sick' },
+      { de1:'ruhig', en1:'calm', de2:'nervös', en2:'nervous' },
+      { de1:'lang', en1:'long', de2:'kurz', en2:'short' },
+      { de1:'voll', en1:'full', de2:'leer', en2:'empty' },
+      { de1:'warm', en1:'warm', de2:'kühl', en2:'cool' },
+      { de1:'klar', en1:'clear', de2:'unklar', en2:'unclear' },
+      { de1:'aktiv', en1:'active', de2:'passiv', en2:'passive' },
+      { de1:'positiv', en1:'positive', de2:'negativ', en2:'negative' },
+      { de1:'interessant', en1:'interesting', de2:'langweilig', en2:'boring' },
+      { de1:'stolz', en1:'proud', de2:'bescheiden', en2:'modest' },
+      { de1:'mutig', en1:'brave', de2:'ängstlich', en2:'afraid' },
+      { de1:'ehrlich', en1:'honest', de2:'unehrlich', en2:'dishonest' },
+      { de1:'fleißig', en1:'hardworking', de2:'faul', en2:'lazy' },
+      { de1:'sicher', en1:'safe', de2:'gefährlich', en2:'dangerous' },
+      { de1:'normal', en1:'normal', de2:'seltsam', en2:'strange' },
+      { de1:'modern', en1:'modern', de2:'traditionell', en2:'traditional' },
+      { de1:'süß', en1:'sweet', de2:'bitter', en2:'bitter' },
+      { de1:'salzig', en1:'salty', de2:'fade', en2:'bland' },
+      { de1:'tief', en1:'deep', de2:'flach', en2:'shallow' },
+      { de1:'kompliziert', en1:'complicated', de2:'unkompliziert', en2:'simple' },
+      { de1:'bekannt', en1:'known', de2:'unbekannt', en2:'unknown' },
+      { de1:'geduldig', en1:'patient', de2:'ungeduldig', en2:'impatient' },
+      { de1:'frei', en1:'free', de2:'besetzt', en2:'occupied' },
+      { de1:'hungrig', en1:'hungry', de2:'satt', en2:'full' },
+      { de1:'krank', en1:'ill', de2:'fit', en2:'fit' },
+      { de1:'ordentlich', en1:'tidy', de2:'unordentlich', en2:'messy' },
+      { de1:'spannend', en1:'exciting', de2:'langweilig', en2:'boring' }
+    ];
+
+    const board=document.getElementById('board'),pairsList=document.getElementById('pairsList'),statusText=document.getElementById('statusText'),matchedValue=document.getElementById('matchedValue'),roundValue=document.getElementById('roundValue'),shuffleBtn=document.getElementById('shuffleBtn'),themeToggle=document.querySelector('[data-theme-toggle]');
+    const antonymMap=new Map(), translationMap=new Map();
+    allPairs.forEach(pair=>{
+      antonymMap.set(pair.de1,pair.de2);
+      antonymMap.set(pair.de2,pair.de1);
+      translationMap.set(pair.de1,pair.en1);
+      translationMap.set(pair.de2,pair.en2);
+    });
+
+    let round=1,firstSelection=null,matchedCount=0,cards=[],lockBoard=false,autoAdvanceTimer=null;
+    const shuffle=array=>{const copy=[...array];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]];}return copy;};
+    const sample=(array,count)=>shuffle(array).slice(0,count);
+
+    function updateStatus(message){statusText.textContent=message;matchedValue.textContent=`${matchedCount} / 18`;roundValue.textContent=String(round);}    
+    function renderList(){pairsList.innerHTML=allPairs.map((pair,index)=>`<li><strong>${index+1}. ${pair.de1}</strong><span>${pair.de2} · ${pair.en1} / ${pair.en2}</span></li>`).join('');}
+    function createDeck(){return shuffle(sample(allPairs,18).flatMap(pair=>[{id:`${pair.de1}-${crypto.randomUUID()}`,word:pair.de1,translation:pair.en1,matched:false},{id:`${pair.de2}-${crypto.randomUUID()}`,word:pair.de2,translation:pair.en2,matched:false} ]));}
+    function renderBoard(){board.innerHTML='';cards.forEach((cardData,index)=>{const button=document.createElement('button');button.className='card';if(cardData.matched)button.classList.add('matched');button.type='button';button.dataset.id=cardData.id;button.setAttribute('role','gridcell');button.setAttribute('aria-label',`Card ${index+1}: ${cardData.word}`);button.innerHTML=`<span class="word-main">${cardData.word}</span>${cardData.matched?`<span class="word-translation">${cardData.translation}</span>`:''}`;button.addEventListener('click',()=>handleCardClick(cardData,button));board.appendChild(button);});}
+    function clearTempStates(){document.querySelectorAll('.card.selected, .card.wrong').forEach(card=>card.classList.remove('selected','wrong'));}
+    function nextRoundAuto(){round+=1;matchedCount=0;firstSelection=null;lockBoard=false;cards=createDeck();renderBoard();updateStatus('New round loaded. Pick one card, then click its antonym.');}
+    function markMatched(wordA,wordB){cards=cards.map(card=>(card.word===wordA||card.word===wordB)?{...card,matched:true}:card);matchedCount+=1;firstSelection=null;renderBoard();if(matchedCount===18){updateStatus('Great job! All 18 pairs solved. Loading a fresh board...');clearTimeout(autoAdvanceTimer);autoAdvanceTimer=setTimeout(nextRoundAuto,1100);}else{updateStatus('Correct match. English translations are now visible under both German words.');}}
+    function handleCardClick(cardData,buttonEl){
+      if(lockBoard || cardData.matched) return;
+      if(!firstSelection){
+        clearTempStates();
+        firstSelection={...cardData, element:buttonEl};
+        buttonEl.classList.add('selected');
+        updateStatus(`First card: ${cardData.word}. Now find its antonym.`);
+        return;
+      }
+      if(firstSelection.id===cardData.id) return;
+      const expected=antonymMap.get(firstSelection.word);
+      if(expected===cardData.word){
+        clearTempStates();
+        markMatched(firstSelection.word,cardData.word);
+      } else {
+        lockBoard=true;
+        buttonEl.classList.add('wrong');
+        firstSelection.element.classList.remove('selected');
+        firstSelection.element.classList.add('wrong');
+        updateStatus(`Not a match: ${firstSelection.word} and ${cardData.word}.`);
+        setTimeout(()=>{
+          clearTempStates();
+          firstSelection=null;
+          lockBoard=false;
+          updateStatus('Try again: pick one card, then click its antonym.');
+        }, 700);
+      }
+    }
+    function newRound(){clearTimeout(autoAdvanceTimer);round+=1;matchedCount=0;firstSelection=null;lockBoard=false;cards=createDeck();renderBoard();updateStatus('New 6×6 board ready. Pick one card, then click its antonym.');}
+    function applyTheme(theme){document.documentElement.setAttribute('data-theme',theme);themeToggle.setAttribute('aria-label',theme==='dark'?'Switch to light mode':'Switch to dark mode');themeToggle.innerHTML=theme==='dark'?'<span aria-hidden="true">☀</span>':'<span aria-hidden="true">◐</span>';}
+    let currentTheme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'; applyTheme(currentTheme);
+    themeToggle.addEventListener('click',()=>{currentTheme=currentTheme==='dark'?'light':'dark';applyTheme(currentTheme);});
+    shuffleBtn.addEventListener('click',newRound);
+    renderList(); cards=createDeck(); renderBoard(); updateStatus('Pick one card, then click its antonym.');
+  </script>
+</body>
+</html>
