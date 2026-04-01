@@ -71,7 +71,22 @@
         var(--color-bg);
     }
 
-    button { font: inherit; cursor: pointer; }
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border-width: 0;
+    }
 
     .shell {
       width: min(1180px, calc(100% - 2rem));
@@ -115,7 +130,7 @@
       flex-wrap: wrap;
     }
 
-    .icon-btn, .primary-btn {
+    .icon-btn, .primary-btn, .secondary-btn {
       min-width: 44px;
       min-height: 44px;
       border-radius: var(--radius-full);
@@ -123,6 +138,10 @@
       background: var(--color-surface);
       color: var(--color-text);
       transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .icon-btn:hover, .primary-btn:hover, .secondary-btn:hover {
+      transform: translateY(-1px);
     }
 
     .primary-btn {
@@ -133,7 +152,10 @@
       font-weight: 700;
     }
 
-    .icon-btn:hover, .primary-btn:hover { transform: translateY(-1px); }
+    .secondary-btn {
+      padding: .8rem 1.2rem;
+      font-weight: 700;
+    }
 
     .hero {
       display: grid;
@@ -150,7 +172,9 @@
       box-shadow: var(--color-shadow);
     }
 
-    .intro { padding: clamp(1.25rem, 2vw, 2rem); }
+    .intro {
+      padding: clamp(1.25rem, 2vw, 2rem);
+    }
 
     .eyebrow {
       display: inline-flex;
@@ -219,7 +243,9 @@
       font-variant-numeric: tabular-nums lining-nums;
     }
 
-    .board-wrap { padding: var(--space-4); }
+    .board-wrap {
+      padding: var(--space-4);
+    }
 
     .board {
       display: grid;
@@ -249,9 +275,19 @@
       transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease, box-shadow 180ms ease;
     }
 
-    .card:hover { transform: translateY(-2px); }
-    .card:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
-    .card.selected { border-color: var(--color-primary); background: var(--color-primary-soft); }
+    .card:hover {
+      transform: translateY(-2px);
+    }
+
+    .card:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+    }
+
+    .card.selected {
+      border-color: var(--color-primary);
+      background: var(--color-primary-soft);
+    }
 
     .card.matched {
       background: var(--color-success-soft);
@@ -286,7 +322,9 @@
       user-select: none;
     }
 
-    .word-main { display: block; }
+    .word-main {
+      display: block;
+    }
 
     .word-translation {
       display: block;
@@ -308,7 +346,9 @@
     }
 
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
+      .hero {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 680px) {
@@ -323,10 +363,21 @@
         font-size: .84rem;
       }
 
-      .word-translation { font-size: .68rem; }
-      .stats { grid-template-columns: 1fr 1fr; }
-      .topbar { align-items: stretch; }
-      .board { gap: .5rem; }
+      .word-translation {
+        font-size: .68rem;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .topbar {
+        align-items: stretch;
+      }
+
+      .board {
+        gap: .5rem;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -355,7 +406,10 @@
       </div>
 
       <div class="top-actions">
-        <button class="icon-btn" data-theme-toggle aria-label="Змінити тему"><span aria-hidden="true">◐</span></button>
+        <button class="icon-btn" data-theme-toggle aria-label="Змінити тему">
+          <span aria-hidden="true">◐</span>
+        </button>
+        <button class="secondary-btn" id="resetProgressBtn">Скинути прогрес</button>
         <button class="primary-btn" id="shuffleBtn">Перезапустити рівень</button>
       </div>
     </header>
@@ -408,6 +462,8 @@
       { id: '6x6', cols: 6, rows: 6 }
     ];
 
+    const STORAGE_KEY = 'german-antonyms-progress-v2';
+
     const board = document.getElementById('board');
     const statusText = document.getElementById('statusText');
     const matchedValue = document.getElementById('matchedValue');
@@ -415,10 +471,12 @@
     const levelValue = document.getElementById('levelValue');
     const cardsValue = document.getElementById('cardsValue');
     const shuffleBtn = document.getElementById('shuffleBtn');
+    const resetProgressBtn = document.getElementById('resetProgressBtn');
     const themeToggle = document.querySelector('[data-theme-toggle]');
     const hintText = document.getElementById('hintText');
 
     const antonymMap = new Map();
+
     allPairs.forEach(pair => {
       antonymMap.set(pair.de1, pair.de2);
       antonymMap.set(pair.de2, pair.de1);
@@ -444,6 +502,44 @@
 
     const sample = (array, count) => shuffle(array).slice(0, count);
 
+    function saveProgress() {
+      const payload = {
+        currentLevelIndex,
+        round
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    }
+
+    function loadProgress() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+
+        const parsed = JSON.parse(raw);
+        const savedLevelIndex = Number(parsed.currentLevelIndex);
+        const savedRound = Number(parsed.round);
+
+        if (Number.isInteger(savedLevelIndex) && savedLevelIndex >= 0 && savedLevelIndex < LEVELS.length) {
+          currentLevelIndex = savedLevelIndex;
+        }
+
+        if (Number.isInteger(savedRound) && savedRound > 0) {
+          round = savedRound;
+        }
+      } catch (error) {
+        currentLevelIndex = 0;
+        round = 1;
+      }
+    }
+
+    function clearProgress() {
+      localStorage.removeItem(STORAGE_KEY);
+      currentLevelIndex = 0;
+      round = 1;
+      startBoard('Прогрес скинуто. Починаємо з рівня 3×2.');
+      saveProgress();
+    }
+
     function currentLevel() {
       return LEVELS[currentLevelIndex];
     }
@@ -463,7 +559,11 @@
     function getWordTranslation(word) {
       const pair = allPairs.find(item => item.de1 === word || item.de2 === word);
       if (!pair) return '';
-      return pair.de1 === word ? pair.uk1 : pair.uk2;
+
+      if (pair.de1 === word) return pair.uk1 || '';
+      if (pair.de2 === word) return pair.uk2 || '';
+
+      return '';
     }
 
     function updateBoardLayout() {
@@ -495,14 +595,12 @@
         {
           id: `${pair.de1}-${crypto.randomUUID()}`,
           word: pair.de1,
-          translation: pair.uk1,
           matched: false,
           filler: false
         },
         {
           id: `${pair.de2}-${crypto.randomUUID()}`,
           word: pair.de2,
-          translation: pair.uk2,
           matched: false,
           filler: false
         }
@@ -512,7 +610,6 @@
         deck.push({
           id: `filler-${crypto.randomUUID()}`,
           word: '',
-          translation: '',
           matched: true,
           filler: true
         });
@@ -544,9 +641,11 @@
         button.setAttribute('role', 'gridcell');
         button.setAttribute('aria-label', `Картка ${index + 1}: ${cardData.word}`);
 
+        const translation = cardData.matched ? getWordTranslation(cardData.word) : '';
+
         button.innerHTML = `
           <span class="word-main">${cardData.word}</span>
-          ${cardData.matched ? `<span class="word-translation">${cardData.translation}</span>` : ''}
+          ${translation ? `<span class="word-translation">${translation}</span>` : ''}
         `;
 
         button.addEventListener('click', () => handleCardClick(cardData, button));
@@ -569,6 +668,7 @@
       updateHint();
       renderBoard();
       updateStatus(message);
+      saveProgress();
     }
 
     function moveToNextLevel() {
@@ -578,14 +678,14 @@
         startBoard(`Вітаю! Відкрито новий рівень ${currentLevel().id}.`);
       } else {
         round += 1;
-        startBoard('Ти пройшов усі рівні. Починаємо фінальний цикл з найбільшого поля.');
+        startBoard(`Рівень ${currentLevel().id} пройдено. Раунд ${round} розпочато.`);
       }
     }
 
     function markMatched(wordA, wordB) {
       cards = cards.map(card =>
         (card.word === wordA || card.word === wordB)
-          ? { ...card, matched: true, translation: getWordTranslation(card.word) }
+          ? { ...card, matched: true }
           : card
       );
 
@@ -638,7 +738,7 @@
 
     function restartCurrentLevel() {
       round += 1;
-      startBoard(`Рівень ${currentLevel().id} перезапущено.`);
+      startBoard(`Рівень ${currentLevel().id} перезапущено. Раунд ${round}.`);
     }
 
     function applyTheme(theme) {
@@ -655,9 +755,11 @@
     });
 
     shuffleBtn.addEventListener('click', restartCurrentLevel);
+    resetProgressBtn.addEventListener('click', clearProgress);
 
     applyTheme(currentTheme);
-    startBoard('Оберіть одну картку, а потім натисніть її антонім.');
+    loadProgress();
+    startBoard(`Продовжуємо з рівня ${currentLevel().id}, раунд ${round}.`);
   </script>
 </body>
 </html>
