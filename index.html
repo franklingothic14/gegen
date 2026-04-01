@@ -275,19 +275,9 @@
       transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease, box-shadow 180ms ease;
     }
 
-    .card:hover {
-      transform: translateY(-2px);
-    }
-
-    .card:focus-visible {
-      outline: 2px solid var(--color-primary);
-      outline-offset: 3px;
-    }
-
-    .card.selected {
-      border-color: var(--color-primary);
-      background: var(--color-primary-soft);
-    }
+    .card:hover { transform: translateY(-2px); }
+    .card:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+    .card.selected { border-color: var(--color-primary); background: var(--color-primary-soft); }
 
     .card.matched {
       background: var(--color-success-soft);
@@ -429,16 +419,16 @@
             <span class="stat-value" id="levelValue">3 × 2</span>
           </div>
           <div class="stat">
-            <span class="stat-label">Раунд</span>
-            <span class="stat-value" id="roundValue">1</span>
-          </div>
-          <div class="stat">
             <span class="stat-label">Карток</span>
             <span class="stat-value" id="cardsValue">6</span>
           </div>
           <div class="stat">
             <span class="stat-label">Пари</span>
             <span class="stat-value" id="matchedValue">0 / 3</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Прогрес</span>
+            <span class="stat-value" id="progressValue">1 / 6</span>
           </div>
         </aside>
       </section>
@@ -462,14 +452,14 @@
       { id: '6x6', cols: 6, rows: 6 }
     ];
 
-    const STORAGE_KEY = 'german-antonyms-progress-v2';
+    const STORAGE_KEY = 'german-antonyms-progress-v4';
 
     const board = document.getElementById('board');
     const statusText = document.getElementById('statusText');
     const matchedValue = document.getElementById('matchedValue');
-    const roundValue = document.getElementById('roundValue');
     const levelValue = document.getElementById('levelValue');
     const cardsValue = document.getElementById('cardsValue');
+    const progressValue = document.getElementById('progressValue');
     const shuffleBtn = document.getElementById('shuffleBtn');
     const resetProgressBtn = document.getElementById('resetProgressBtn');
     const themeToggle = document.querySelector('[data-theme-toggle]');
@@ -483,7 +473,6 @@
     });
 
     let currentLevelIndex = 0;
-    let round = 1;
     let firstSelection = null;
     let matchedCount = 0;
     let cards = [];
@@ -503,11 +492,10 @@
     const sample = (array, count) => shuffle(array).slice(0, count);
 
     function saveProgress() {
-      const payload = {
-        currentLevelIndex,
-        round
-      };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({ currentLevelIndex })
+      );
     }
 
     function loadProgress() {
@@ -517,25 +505,18 @@
 
         const parsed = JSON.parse(raw);
         const savedLevelIndex = Number(parsed.currentLevelIndex);
-        const savedRound = Number(parsed.round);
 
         if (Number.isInteger(savedLevelIndex) && savedLevelIndex >= 0 && savedLevelIndex < LEVELS.length) {
           currentLevelIndex = savedLevelIndex;
         }
-
-        if (Number.isInteger(savedRound) && savedRound > 0) {
-          round = savedRound;
-        }
       } catch (error) {
         currentLevelIndex = 0;
-        round = 1;
       }
     }
 
     function clearProgress() {
       localStorage.removeItem(STORAGE_KEY);
       currentLevelIndex = 0;
-      round = 1;
       startBoard('Прогрес скинуто. Починаємо з рівня 3×2.');
       saveProgress();
     }
@@ -559,10 +540,8 @@
     function getWordTranslation(word) {
       const pair = allPairs.find(item => item.de1 === word || item.de2 === word);
       if (!pair) return '';
-
       if (pair.de1 === word) return pair.uk1 || '';
       if (pair.de2 === word) return pair.uk2 || '';
-
       return '';
     }
 
@@ -578,9 +557,9 @@
 
     function updateStats() {
       matchedValue.textContent = `${matchedCount} / ${getPairCount()}`;
-      roundValue.textContent = String(round);
       levelValue.textContent = `${currentLevel().cols} × ${currentLevel().rows}`;
       cardsValue.textContent = String(getTotalSlots());
+      progressValue.textContent = `${currentLevelIndex + 1} / ${LEVELS.length}`;
     }
 
     function updateStatus(message = null) {
@@ -674,11 +653,9 @@
     function moveToNextLevel() {
       if (currentLevelIndex < LEVELS.length - 1) {
         currentLevelIndex += 1;
-        round = 1;
         startBoard(`Вітаю! Відкрито новий рівень ${currentLevel().id}.`);
       } else {
-        round += 1;
-        startBoard(`Рівень ${currentLevel().id} пройдено. Раунд ${round} розпочато.`);
+        startBoard('Ти вже на останньому рівні. Граємо далі на найбільшому полі.');
       }
     }
 
@@ -737,8 +714,7 @@
     }
 
     function restartCurrentLevel() {
-      round += 1;
-      startBoard(`Рівень ${currentLevel().id} перезапущено. Раунд ${round}.`);
+      startBoard(`Рівень ${currentLevel().id} перезапущено.`);
     }
 
     function applyTheme(theme) {
@@ -759,7 +735,7 @@
 
     applyTheme(currentTheme);
     loadProgress();
-    startBoard(`Продовжуємо з рівня ${currentLevel().id}, раунд ${round}.`);
+    startBoard(`Продовжуємо з рівня ${currentLevel().id}.`);
   </script>
 </body>
 </html>
