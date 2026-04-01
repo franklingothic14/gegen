@@ -38,6 +38,10 @@
       --color-error-soft: #f3dce0;
       --color-shadow: 0 16px 40px rgba(35,31,24,0.08);
       --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --terminal-bg: #111111;
+      --terminal-text: #c9f7c2;
+      --terminal-dim: #7cbf73;
+      --terminal-border: rgba(255,255,255,0.08);
     }
 
     [data-theme="dark"] {
@@ -54,6 +58,10 @@
       --color-error: #dd6974;
       --color-error-soft: rgba(221,105,116,0.18);
       --color-shadow: 0 18px 42px rgba(0,0,0,0.28);
+      --terminal-bg: #0b0b0b;
+      --terminal-text: #bbf7b6;
+      --terminal-dim: #6fc46a;
+      --terminal-border: rgba(255,255,255,0.08);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -172,6 +180,12 @@
       box-shadow: var(--color-shadow);
     }
 
+    .intro,
+    .board-wrap,
+    .terminal-wrap {
+      padding: var(--space-4);
+    }
+
     .intro {
       padding: clamp(1.25rem, 2vw, 2rem);
     }
@@ -191,11 +205,19 @@
       margin-bottom: var(--space-4);
     }
 
-    h1 {
+    h1, h2 {
       margin: 0 0 var(--space-3);
+      letter-spacing: -0.05em;
+    }
+
+    h1 {
       font-size: var(--text-xl);
       line-height: 1.08;
-      letter-spacing: -0.05em;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      line-height: 1.15;
     }
 
     .intro p {
@@ -241,10 +263,6 @@
       font-size: var(--text-lg);
       font-weight: 800;
       font-variant-numeric: tabular-nums lining-nums;
-    }
-
-    .board-wrap {
-      padding: var(--space-4);
     }
 
     .board {
@@ -312,9 +330,7 @@
       user-select: none;
     }
 
-    .word-main {
-      display: block;
-    }
+    .word-main { display: block; }
 
     .word-translation {
       display: block;
@@ -333,6 +349,75 @@
       margin-top: var(--space-4);
       color: var(--color-text-muted);
       font-size: var(--text-sm);
+    }
+
+    .terminal {
+      margin-top: .5rem;
+      background: var(--terminal-bg);
+      color: var(--terminal-text);
+      border: 1px solid var(--terminal-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--color-shadow);
+    }
+
+    .terminal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .85rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.02);
+      font-size: var(--text-sm);
+    }
+
+    .terminal-dots {
+      display: inline-flex;
+      gap: .45rem;
+      align-items: center;
+    }
+
+    .terminal-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .terminal-dots span:nth-child(1) { background: #ff5f57; }
+    .terminal-dots span:nth-child(2) { background: #febc2e; }
+    .terminal-dots span:nth-child(3) { background: #28c840; }
+
+    .terminal-title {
+      color: var(--terminal-dim);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .terminal-body {
+      min-height: 180px;
+      max-height: 320px;
+      overflow: auto;
+      padding: 1rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: .95rem;
+      line-height: 1.5;
+    }
+
+    .terminal-line {
+      margin: 0 0 .45rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .terminal-line::before {
+      content: '> ';
+      color: var(--terminal-dim);
+    }
+
+    .terminal-empty {
+      color: var(--terminal-dim);
+      opacity: .95;
     }
 
     @media (max-width: 900px) {
@@ -368,6 +453,10 @@
       .board {
         gap: .5rem;
       }
+
+      .terminal-body {
+        min-height: 150px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -400,7 +489,7 @@
           <span aria-hidden="true">◐</span>
         </button>
         <button class="secondary-btn" id="resetProgressBtn">Скинути прогрес</button>
-        <button class="primary-btn" id="shuffleBtn">Перезапустити рівень</button>
+        <button class="primary-btn" id="shuffleBtn">Нове поле</button>
       </div>
     </header>
 
@@ -438,6 +527,21 @@
         <div class="board" id="board" role="grid" aria-label="Ігрове поле для пошуку німецьких антонімів"></div>
         <div class="status" id="statusText">Оберіть одну картку, а потім натисніть її антонім.</div>
       </section>
+
+      <section class="panel terminal-wrap" aria-labelledby="terminalTitle">
+        <h2 id="terminalTitle">Лог правильних пар</h2>
+        <div class="terminal" aria-live="polite">
+          <div class="terminal-head">
+            <div class="terminal-dots" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="terminal-title">match-log://correct-pairs</div>
+          </div>
+          <div class="terminal-body" id="terminalBody">
+            <div class="terminal-empty">Поки що немає правильних пар.</div>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 
@@ -452,7 +556,7 @@
       { id: '6x6', cols: 6, rows: 6 }
     ];
 
-    const STORAGE_KEY = 'german-antonyms-progress-v4';
+    const STORAGE_KEY = 'german-antonyms-progress-v6';
 
     const board = document.getElementById('board');
     const statusText = document.getElementById('statusText');
@@ -464,6 +568,7 @@
     const resetProgressBtn = document.getElementById('resetProgressBtn');
     const themeToggle = document.querySelector('[data-theme-toggle]');
     const hintText = document.getElementById('hintText');
+    const terminalBody = document.getElementById('terminalBody');
 
     const antonymMap = new Map();
 
@@ -479,6 +584,7 @@
     let lockBoard = false;
     let autoAdvanceTimer = null;
     let currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    let matchLog = [];
 
     const shuffle = (array) => {
       const copy = [...array];
@@ -525,6 +631,10 @@
       return LEVELS[currentLevelIndex];
     }
 
+    function getLevelLabel() {
+      return `${currentLevel().cols}×${currentLevel().rows}`;
+    }
+
     function getTotalSlots() {
       return currentLevel().cols * currentLevel().rows;
     }
@@ -565,6 +675,35 @@
     function updateStatus(message = null) {
       statusText.textContent = message || 'Оберіть одну картку, а потім натисніть її антонім.';
       updateStats();
+    }
+
+    function resetMatchLog() {
+      matchLog = [];
+      renderMatchLog();
+    }
+
+    function addToMatchLog(wordA, wordB) {
+      const entries = [
+        { word: wordA, translation: getWordTranslation(wordA) },
+        { word: wordB, translation: getWordTranslation(wordB) }
+      ].sort((a, b) => a.word.localeCompare(b.word, 'de'));
+
+      const line = `[${getLevelLabel()}] ${entries[0].word} — ${entries[1].word} (${entries[0].translation} — ${entries[1].translation})`;
+      matchLog.push(line);
+      renderMatchLog();
+    }
+
+    function renderMatchLog() {
+      if (!matchLog.length) {
+        terminalBody.innerHTML = `<div class="terminal-empty">Поки що немає правильних пар.</div>`;
+        return;
+      }
+
+      terminalBody.innerHTML = matchLog
+        .map(item => `<div class="terminal-line">${item}</div>`)
+        .join('');
+
+      terminalBody.scrollTop = terminalBody.scrollHeight;
     }
 
     function createDeck() {
@@ -667,6 +806,7 @@
       );
 
       matchedCount += 1;
+      addToMatchLog(wordA, wordB);
       firstSelection = null;
       renderBoard();
 
@@ -714,7 +854,7 @@
     }
 
     function restartCurrentLevel() {
-      startBoard(`Рівень ${currentLevel().id} перезапущено.`);
+      startBoard(`Нове поле для рівня ${currentLevel().id}.`);
     }
 
     function applyTheme(theme) {
