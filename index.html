@@ -1,82 +1,88 @@
 <!DOCTYPE html>
-<html lang="uk" data-theme="light">
+<html lang="de" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Німецькі антоніми</title>
+  <title>Deutsche Gegenteile</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
-    :root, [data-theme="light"] {
-      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
-      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
-      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
-      --space-2: 0.5rem;
-      --space-3: 0.75rem;
-      --space-4: 1rem;
-      --space-5: 1.25rem;
-      --space-6: 1.5rem;
-      --space-8: 2rem;
-      --radius-sm: 0.5rem;
-      --radius-md: 0.9rem;
-      --radius-lg: 1.2rem;
+    :root {
+      --text-xs: clamp(0.68rem, 0.64rem + 0.2vw, 0.78rem);
+      --text-sm: clamp(0.80rem, 0.76rem + 0.22vw, 0.90rem);
+      --text-base: clamp(0.90rem, 0.86rem + 0.22vw, 1.00rem);
+      --text-lg: clamp(1.05rem, 0.95rem + 0.55vw, 1.32rem);
+      --text-xl: clamp(1.3rem, 1.0rem + 1.0vw, 1.9rem);
+
+      --radius-sm: 0.6rem;
+      --radius-md: 1.0rem;
+      --radius-lg: 1.4rem;
+      --radius-xl: 1.8rem;
       --radius-full: 9999px;
-      --color-bg: #f7f6f2;
-      --color-surface: #fbfbf8;
-      --color-surface-2: #f0eee8;
-      --color-border: rgba(40,37,29,0.12);
-      --color-text: #28251d;
-      --color-text-muted: #6f6d67;
-      --color-primary: #01696f;
-      --color-primary-soft: #d8eceb;
-      --color-success: #437a22;
-      --color-success-soft: #d8ead0;
-      --color-error: #a13544;
-      --color-error-soft: #f3dce0;
-      --color-shadow: 0 16px 40px rgba(35,31,24,0.08);
+
+      --bg: #e8e8ec;
+      --surface: #e8e8ec;
+      --surface-up: #f0f0f4;
+
+      --text-color: #2a2a35;
+      --text-soft: #7a7a8a;
+      --text-faint: #b0b0bc;
+
+      --sh-dark: rgba(180, 180, 195, 0.85);
+      --sh-light: rgba(255, 255, 255, 0.92);
+      --neo-raise: 6px 6px 14px var(--sh-dark), -6px -6px 14px var(--sh-light);
+      --neo-raise-lg: 10px 10px 26px var(--sh-dark), -10px -10px 26px var(--sh-light);
+      --neo-inset: inset 4px 4px 10px var(--sh-dark), inset -4px -4px 10px var(--sh-light);
+
+      --acc: #4a9ed6;
+      --success: #5aaa78;
+      --danger: #d07070;
+
       --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
-      --terminal-bg: #111111;
-      --terminal-text: #c9f7c2;
-      --terminal-dim: #7cbf73;
-      --terminal-border: rgba(255,255,255,0.08);
     }
 
     [data-theme="dark"] {
-      --color-bg: #171614;
-      --color-surface: #1d1c19;
-      --color-surface-2: #25231f;
-      --color-border: rgba(255,255,255,0.12);
-      --color-text: #ece7db;
-      --color-text-muted: #afaa9f;
-      --color-primary: #58a8ad;
-      --color-primary-soft: rgba(88,168,173,0.16);
-      --color-success: #78b655;
-      --color-success-soft: rgba(120,182,85,0.18);
-      --color-error: #dd6974;
-      --color-error-soft: rgba(221,105,116,0.18);
-      --color-shadow: 0 18px 42px rgba(0,0,0,0.28);
-      --terminal-bg: #0b0b0b;
-      --terminal-text: #bbf7b6;
-      --terminal-dim: #6fc46a;
-      --terminal-border: rgba(255,255,255,0.08);
+      --bg: #1e1e24;
+      --surface: #1e1e24;
+      --surface-up: #26262e;
+
+      --text-color: #e8e4de;
+      --text-soft: #9090a0;
+      --text-faint: #55555f;
+
+      --sh-dark: rgba(0, 0, 0, 0.60);
+      --sh-light: rgba(255, 255, 255, 0.048);
+      --neo-raise: 6px 6px 14px var(--sh-dark), -6px -6px 14px var(--sh-light);
+      --neo-raise-lg: 10px 10px 26px var(--sh-dark), -10px -10px 26px var(--sh-light);
+      --neo-inset: inset 4px 4px 10px rgba(0, 0, 0, 0.55), inset -4px -4px 10px rgba(255, 255, 255, 0.035);
+
+      --acc: #58a8cc;
+      --success: #6aaa7e;
+      --danger: #c97a73;
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       min-height: 100vh;
       font-family: var(--font-body);
       font-size: var(--text-base);
-      color: var(--color-text);
-      background:
-        radial-gradient(circle at top left, rgba(1,105,111,.12), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(67,122,34,.08), transparent 28%),
-        var(--color-bg);
+      color: var(--text-color);
+      background: var(--bg);
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     button {
@@ -84,498 +90,683 @@
       cursor: pointer;
     }
 
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
-      border-width: 0;
-    }
-
     .shell {
-      width: min(1180px, calc(100% - 2rem));
+      width: min(1100px, calc(100% - 2rem));
       margin: 0 auto;
-      padding: 1.25rem 0 2.5rem;
+      padding: 1.6rem 0 3rem;
     }
 
     .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: var(--space-4);
-      margin-bottom: var(--space-6);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
       flex-wrap: wrap;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: var(--space-3);
+      gap: 0;
       font-weight: 800;
       letter-spacing: -0.03em;
-    }
-
-    .logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--color-primary), #7eb5b7);
-      display: grid;
-      place-items: center;
-      color: #fff;
-      box-shadow: var(--color-shadow);
-      flex: 0 0 auto;
+      font-size: var(--text-lg);
+      color: var(--text-color);
     }
 
     .top-actions {
       display: flex;
       align-items: center;
-      gap: var(--space-3);
+      gap: 0.65rem;
       flex-wrap: wrap;
     }
 
-    .icon-btn, .primary-btn, .secondary-btn {
-      min-width: 44px;
-      min-height: 44px;
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.72rem 1.3rem;
+      border: none;
       border-radius: var(--radius-full);
-      border: 1px solid var(--color-border);
-      background: var(--color-surface);
-      color: var(--color-text);
-      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-    }
-
-    .icon-btn:hover, .primary-btn:hover, .secondary-btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .primary-btn {
-      padding: .8rem 1.2rem;
-      background: var(--color-primary);
-      color: #fff;
-      border-color: transparent;
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
       font-weight: 700;
+      background: var(--surface);
+      color: var(--text-soft);
+      box-shadow: var(--neo-raise);
+      transition: transform 150ms ease, box-shadow 150ms ease, color 150ms ease;
+      min-height: 44px;
     }
 
-    .secondary-btn {
-      padding: .8rem 1.2rem;
-      font-weight: 700;
+    .pill-btn.accent {
+      color: var(--acc);
     }
 
-    .hero {
+    .pill-btn.default-state {
+      background: var(--surface-up);
+      color: var(--text-color);
+    }
+
+    .pill-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .pill-btn:active {
+      transform: scale(0.97);
+      box-shadow: var(--neo-inset) !important;
+    }
+
+    .icon-pill {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-full);
+      border: none;
+      background: var(--surface);
+      color: var(--text-soft);
+      box-shadow: var(--neo-raise);
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: var(--space-5);
-      align-items: stretch;
-      margin-bottom: var(--space-6);
+      place-items: center;
+      font-size: 1rem;
+      transition: transform 150ms ease, box-shadow 150ms ease;
+    }
+
+    .icon-pill:hover {
+      transform: translateY(-2px);
+    }
+
+    .icon-pill:active {
+      box-shadow: var(--neo-inset) !important;
+      transform: scale(0.97);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    .lang-btn {
+      min-width: 58px;
+      justify-content: center;
+    }
+
+    .lang-btn.active {
+      background: var(--surface-up);
+      color: var(--acc);
+      box-shadow: var(--neo-inset);
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     .panel {
-      background: color-mix(in oklab, var(--color-surface) 92%, white 8%);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--color-shadow);
+      background: var(--surface);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--neo-raise-lg);
+      padding: 1.4rem;
     }
 
-    .intro,
-    .board-wrap,
-    .terminal-wrap {
-      padding: var(--space-4);
-    }
-
-    .intro {
-      padding: clamp(1.25rem, 2vw, 2rem);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .45rem .85rem;
-      border-radius: var(--radius-full);
-      background: var(--color-primary-soft);
-      color: var(--color-primary);
+    .panel-title {
       font-size: var(--text-xs);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin-bottom: var(--space-4);
-    }
-
-    h1, h2 {
-      margin: 0 0 var(--space-3);
-      letter-spacing: -0.05em;
-    }
-
-    h1 {
-      font-size: var(--text-xl);
-      line-height: 1.08;
-    }
-
-    h2 {
-      font-size: 1.25rem;
-      line-height: 1.15;
-    }
-
-    .intro p {
-      margin: 0;
-      color: var(--color-text-muted);
-      max-width: 58ch;
-    }
-
-    .hint {
-      margin-top: var(--space-4);
-      padding: .85rem 1rem;
-      border-radius: var(--radius-md);
-      background: var(--color-success-soft);
-      color: var(--color-success);
-      font-size: var(--text-sm);
-      font-weight: 700;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: var(--space-3);
-      padding: clamp(1.25rem, 2vw, 1.75rem);
-    }
-
-    .stat {
-      padding: 1rem;
-      border-radius: var(--radius-md);
-      background: var(--color-surface-2);
-      border: 1px solid var(--color-border);
-    }
-
-    .stat-label {
-      display: block;
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--color-text-muted);
-      margin-bottom: .45rem;
-    }
-
-    .stat-value {
-      font-size: var(--text-lg);
       font-weight: 800;
-      font-variant-numeric: tabular-nums lining-nums;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-faint);
+      margin: 0 0 1rem;
+    }
+
+    .stat-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0.9rem;
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: var(--neo-inset);
+      margin-bottom: 0.65rem;
+    }
+
+    .stat-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .stat-label-sm {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-faint);
+    }
+
+    .stat-val {
+      font-size: var(--text-sm);
+      font-weight: 800;
+      color: var(--text-color);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .prog-track {
+      height: 8px;
+      border-radius: 99px;
+      background: var(--surface);
+      box-shadow: var(--neo-inset);
+      overflow: hidden;
+    }
+
+    .prog-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: inherit;
+      background: var(--acc);
+      box-shadow: 0 0 10px rgba(74, 158, 214, 0.35);
+      transition: width 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .prog-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.35rem;
+    }
+
+    .prog-pct {
+      font-size: var(--text-xs);
+      font-weight: 800;
+      color: var(--acc);
+    }
+
+    .prog-count {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: var(--text-faint);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .toast-panel {
+      background: var(--surface);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--neo-raise-lg);
+      padding: 1.1rem 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      min-height: 56px;
+    }
+
+    .toast-text {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-soft);
+      flex: 1;
+    }
+
+    .toast-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-full);
+      background: var(--surface);
+      box-shadow: var(--neo-raise);
+      display: grid;
+      place-items: center;
+      font-size: 0.85rem;
+      flex: 0 0 auto;
+      transition: color 0.3s ease;
+    }
+
+    .toast-icon.success {
+      color: var(--success);
+    }
+
+    .toast-icon.danger {
+      color: var(--danger);
+    }
+
+    .toast-icon.accent {
+      color: var(--acc);
+    }
+
+    .toast-icon.neutral {
+      color: var(--text-faint);
+    }
+
+    .log-body {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--neo-inset);
+      overflow-y: auto;
+      max-height: 220px;
+      padding: 0.85rem 1rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.80rem;
+      line-height: 1.6;
+      color: var(--text-soft);
+    }
+
+    .log-line {
+      margin: 0 0 0.3rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .log-line::before {
+      content: '→ ';
+      color: var(--acc);
+      font-weight: 700;
+    }
+
+    .log-empty {
+      color: var(--text-faint);
+      font-style: italic;
+    }
+
+    .board-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .board-panel {
+      background: var(--surface);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--neo-raise-lg);
+      padding: 1.4rem;
     }
 
     .board {
       display: grid;
-      gap: .75rem;
+      gap: 0.75rem;
     }
 
-    .card, .filler {
+    .card,
+    .filler {
       position: relative;
-      min-height: 88px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--color-border);
-      padding: .75rem .5rem;
+      min-height: 80px;
+      border-radius: var(--radius-lg);
+      padding: 0.75rem 0.55rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       font-weight: 700;
-      line-height: 1.15;
-      gap: .2rem;
+      line-height: 1.25;
+      gap: 0.2rem;
+      border: none;
     }
 
     .card {
-      background: var(--color-surface);
-      color: var(--color-text);
-      box-shadow: 0 6px 16px rgba(0,0,0,.04);
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+      background: var(--surface);
+      color: var(--text-color);
+      box-shadow: var(--neo-raise);
+      transition: transform 150ms ease, box-shadow 150ms ease, color 160ms ease;
     }
 
-    .card:hover { transform: translateY(-2px); }
-    .card:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
-    .card.selected { border-color: var(--color-primary); background: var(--color-primary-soft); }
+    .card:hover:not(:disabled):not(.selected):not(.matched):not(.wrong) {
+      transform: translateY(-3px);
+      box-shadow: 8px 8px 20px var(--sh-dark), -8px -8px 20px var(--sh-light);
+    }
+
+    .card:focus-visible {
+      outline: 2px solid var(--acc);
+      outline-offset: 3px;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--text-faint);
+      opacity: 0.5;
+      transition: background 160ms ease, opacity 160ms ease;
+    }
+
+    .card.selected {
+      background: var(--surface-up);
+      color: var(--acc);
+      box-shadow: var(--neo-inset);
+      transform: scale(0.97);
+    }
+
+    .card.selected::after {
+      background: var(--acc);
+      opacity: 1;
+    }
 
     .card.matched {
-      background: var(--color-success-soft);
-      border-color: color-mix(in oklab, var(--color-success) 60%, transparent);
-      color: var(--color-success);
+      background: var(--surface);
+      color: var(--success);
+      box-shadow: var(--neo-inset);
+      cursor: default;
     }
 
     .card.matched::after {
-      content: '✓';
+      background: var(--success);
+      opacity: 1;
+    }
+
+    .card.matched .checkmark {
       position: absolute;
-      inset: auto 10px 10px auto;
-      font-size: .95rem;
-      opacity: .85;
+      inset: auto 8px 8px auto;
+      font-size: 0.75rem;
+      opacity: 0.75;
     }
 
     .card.wrong {
-      background: var(--color-error-soft);
-      border-color: color-mix(in oklab, var(--color-error) 60%, transparent);
-      color: var(--color-error);
-      box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-error) 14%, transparent);
+      background: var(--surface);
+      color: var(--danger);
+      box-shadow: var(--neo-inset);
+    }
+
+    .card.wrong::after {
+      background: var(--danger);
+      opacity: 1;
     }
 
     .filler {
-      background: repeating-linear-gradient(
-        135deg,
-        var(--color-surface-2),
-        var(--color-surface-2) 10px,
-        color-mix(in oklab, var(--color-surface-2) 65%, var(--color-surface)) 10px,
-        color-mix(in oklab, var(--color-surface-2) 65%, var(--color-surface)) 20px
-      );
-      color: var(--color-text-muted);
+      background: var(--surface);
+      box-shadow: var(--neo-inset);
+      color: var(--text-faint);
       user-select: none;
+      border-radius: var(--radius-lg);
     }
 
-    .word-main { display: block; }
+    .word-main {
+      display: block;
+      font-size: var(--text-sm);
+    }
 
     .word-translation {
       display: block;
-      font-size: .75rem;
+      font-size: 0.68rem;
       font-weight: 600;
-      opacity: .85;
-      color: var(--color-text-muted);
+      color: var(--text-faint);
     }
 
     .card.matched .word-translation {
       color: currentColor;
-      opacity: .9;
+      opacity: 0.75;
     }
 
-    .status {
-      margin-top: var(--space-4);
-      color: var(--color-text-muted);
-      font-size: var(--text-sm);
+    .level-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.8rem;
     }
 
-    .terminal {
-      margin-top: .5rem;
-      background: var(--terminal-bg);
-      color: var(--terminal-text);
-      border: 1px solid var(--terminal-border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--color-shadow);
+    .level-pill {
+      padding: 0.38rem 0.85rem;
+      border-radius: var(--radius-full);
+      border: none;
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      background: var(--surface);
+      color: var(--text-faint);
+      box-shadow: var(--neo-raise);
+      cursor: default;
+      transition: box-shadow 0.2s, color 0.2s;
     }
 
-    .terminal-head {
+    .level-pill.active {
+      background: var(--surface-up);
+      color: var(--acc);
+      box-shadow: var(--neo-inset);
+    }
+
+    .level-pill.done {
+      color: var(--success);
+      box-shadow: var(--neo-inset);
+    }
+
+    .segment-wrap {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: .85rem 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      background: rgba(255,255,255,0.02);
-      font-size: var(--text-sm);
+      margin-bottom: 1rem;
     }
 
-    .terminal-dots {
+    .segment-switch {
       display: inline-flex;
-      gap: .45rem;
       align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem;
+      background: var(--surface);
+      border-radius: var(--radius-full);
+      box-shadow: var(--neo-inset);
+      width: 100%;
     }
 
-    .terminal-dots span {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      display: inline-block;
+    .segment-btn {
+      flex: 1 1 0;
+      min-width: 0;
+      height: 40px;
+      padding: 0 1rem;
+      border: none;
+      border-radius: var(--radius-full);
+      background: transparent;
+      color: var(--text-faint);
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      transition: all 160ms ease;
     }
 
-    .terminal-dots span:nth-child(1) { background: #ff5f57; }
-    .terminal-dots span:nth-child(2) { background: #febc2e; }
-    .terminal-dots span:nth-child(3) { background: #28c840; }
-
-    .terminal-title {
-      color: var(--terminal-dim);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    .segment-btn.active {
+      background: var(--surface);
+      color: var(--text-color);
+      box-shadow: var(--neo-raise);
     }
 
-    .terminal-body {
-      min-height: 180px;
-      max-height: 320px;
-      overflow: auto;
-      padding: 1rem;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: .95rem;
-      line-height: 1.5;
+    .segment-btn:hover:not(.active) {
+      color: var(--text-soft);
     }
 
-    .terminal-line {
-      margin: 0 0 .45rem;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-
-    .terminal-line::before {
-      content: '> ';
-      color: var(--terminal-dim);
-    }
-
-    .terminal-empty {
-      color: var(--terminal-dim);
-      opacity: .95;
-    }
-
-    @media (max-width: 900px) {
-      .hero {
+    @media (max-width: 820px) {
+      .main-grid {
         grid-template-columns: 1fr;
       }
-    }
 
-    @media (max-width: 680px) {
-      .shell {
-        width: min(100% - 1rem, 1180px);
-        padding-top: .75rem;
+      .sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
       }
 
-      .card, .filler {
-        min-height: 78px;
-        padding: .55rem .35rem;
-        font-size: .84rem;
+      .sidebar .panel {
+        flex: 1 1 200px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell {
+        width: min(100% - 0.75rem, 1100px);
+        padding-top: 0.8rem;
+      }
+
+      .card,
+      .filler {
+        min-height: 68px;
+        font-size: 0.82rem;
       }
 
       .word-translation {
-        font-size: .68rem;
-      }
-
-      .stats {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .topbar {
-        align-items: stretch;
+        font-size: 0.62rem;
       }
 
       .board {
-        gap: .5rem;
+        gap: 0.5rem;
       }
 
-      .terminal-body {
-        min-height: 150px;
+      .sidebar {
+        flex-direction: column;
+      }
+
+      .top-actions {
+        width: 100%;
+      }
+
+      .segment-switch {
+        width: 100%;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+
+      *,
+      *::before,
+      *::after {
         animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
-        scroll-behavior: auto !important;
       }
     }
   </style>
 </head>
+
 <body>
   <div class="shell">
     <header class="topbar">
-      <div class="brand" aria-label="Логотип гри на німецькі антоніми">
-        <div class="logo" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 7h14"></path>
-            <path d="M5 17h14"></path>
-            <path d="M8 7c0 5-2 8-3 10"></path>
-            <path d="M16 17c0-5 2-8 3-10"></path>
-          </svg>
-        </div>
-        <span>Німецькі антоніми</span>
+      <div class="brand">
+        <span>Deutsche Gegenteile</span>
       </div>
 
       <div class="top-actions">
-        <button class="icon-btn" data-theme-toggle aria-label="Змінити тему">
+        <button class="icon-pill" data-theme-toggle aria-label="Thema wechseln">
           <span aria-hidden="true">◐</span>
         </button>
-        <button class="secondary-btn" id="resetProgressBtn">Скинути прогрес</button>
-        <button class="primary-btn" id="shuffleBtn">Нове поле</button>
+
+        <div class="lang-switch" id="langSwitch" aria-label="Sprache wählen">
+          <button class="pill-btn lang-btn" data-lang="en" type="button">EN</button>
+          <button class="pill-btn lang-btn" data-lang="uk" type="button">UK</button>
+          <button class="pill-btn lang-btn" data-lang="hu" type="button">HU</button>
+        </div>
+
+        <button class="pill-btn" id="resetProgressBtn">Zurücksetzen</button>
+        <button class="pill-btn accent" id="shuffleBtn">Neues Feld</button>
       </div>
     </header>
 
-    <main id="game">
-      <section class="hero">
-        <article class="panel intro">
-          <div class="eyebrow">Поступове проходження</div>
-          <h1>Почни з 3×2 і відкривай більші поля</h1>
-          <p>Після проходження рівень автоматично переходить на наступний: 3×2, 3×3, 4×3, 4×4, 6×3, 6×6. Після правильної пари під словами з’являється український переклад.</p>
-          <div class="hint" id="hintText">Для рівня 3×3 одна клітинка буде порожньою, бо 9 карток неможливо повністю скласти в пари.</div>
-        </article>
+    <div class="main-grid" id="game">
+      <aside class="sidebar" aria-label="Spielstatistik">
+        <div class="panel">
+          <p class="panel-title">Wortniveau</p>
 
-        <aside class="panel stats" aria-label="Статистика гри">
-          <div class="stat">
-            <span class="stat-label">Рівень</span>
-            <span class="stat-value" id="levelValue">3 × 2</span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Карток</span>
-            <span class="stat-value" id="cardsValue">6</span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Пари</span>
-            <span class="stat-value" id="matchedValue">0 / 3</span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Прогрес</span>
-            <span class="stat-value" id="progressValue">1 / 6</span>
-          </div>
-        </aside>
-      </section>
-
-      <section class="panel board-wrap" aria-labelledby="boardTitle">
-        <h2 id="boardTitle" class="sr-only">Ігрове поле</h2>
-        <div class="board" id="board" role="grid" aria-label="Ігрове поле для пошуку німецьких антонімів"></div>
-        <div class="status" id="statusText">Оберіть одну картку, а потім натисніть її антонім.</div>
-      </section>
-
-      <section class="panel terminal-wrap" aria-labelledby="terminalTitle">
-        <h2 id="terminalTitle">Лог правильних пар</h2>
-        <div class="terminal" aria-live="polite">
-          <div class="terminal-head">
-            <div class="terminal-dots" aria-hidden="true">
-              <span></span><span></span><span></span>
+          <div class="segment-wrap">
+            <div class="segment-switch" id="categorySwitch" role="tablist" aria-label="Niveau wählen">
+              <button class="segment-btn active" data-category="A1" type="button">A1</button>
+              <button class="segment-btn" data-category="A2" type="button">A2</button>
+              <button class="segment-btn" data-category="B1" type="button">B1</button>
             </div>
-            <div class="terminal-title">match-log://correct-pairs</div>
           </div>
-          <div class="terminal-body" id="terminalBody">
-            <div class="terminal-empty">Поки що немає правильних пар.</div>
+
+          <p class="panel-title">Statistik</p>
+
+          <div class="level-pills" id="levelPills"></div>
+
+          <div class="stat-row">
+            <span class="stat-label-sm">Aktuelles Niveau</span>
+            <span class="stat-val" id="categoryValue">A1</span>
+          </div>
+
+          <div class="stat-row">
+            <span class="stat-label-sm">Aktuelles Level</span>
+            <span class="stat-val" id="levelValue">3 × 2</span>
+          </div>
+
+          <div class="stat-row">
+            <span class="stat-label-sm">Wörter gesamt</span>
+            <span class="stat-val" id="totalWordsValue">—</span>
+          </div>
+
+          <div class="stat-row" style="flex-direction:column; align-items:stretch; gap:0;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.45rem;">
+              <span class="stat-label-sm">Fortschritt</span>
+              <span class="prog-pct" id="levelProgressPct">0%</span>
+            </div>
+            <div class="prog-track">
+              <div class="prog-fill" id="levelProgressFill"></div>
+            </div>
+            <div class="prog-labels">
+              <span></span>
+              <span class="prog-count" id="levelProgressLabel">0 / 0</span>
+            </div>
           </div>
         </div>
-      </section>
-    </main>
+
+        <div class="panel">
+          <p class="panel-title">Richtige Paare</p>
+          <div class="log-body" id="terminalBody" aria-live="polite">
+            <span class="log-empty">Noch keine richtigen Paare.</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="board-col">
+        <div class="board-panel">
+          <div class="board" id="board" role="grid" aria-label="Spielfeld"></div>
+        </div>
+
+        <div class="toast-panel" aria-live="polite" aria-atomic="true">
+          <span class="toast-text" id="statusText">Wähle eine Karte, dann klicke ihr Antonym.</span>
+          <div class="toast-icon neutral" id="toastIcon" aria-hidden="true">○</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="dictionary.js"></script>
   <script>
     const LEVELS = [
-      { id: '3x2', cols: 3, rows: 2 },
-      { id: '3x3', cols: 3, rows: 3 },
-      { id: '4x3', cols: 4, rows: 3 },
-      { id: '4x4', cols: 4, rows: 4 },
-      { id: '6x3', cols: 6, rows: 3 },
-      { id: '6x6', cols: 6, rows: 6 }
+      { id: '3×2', cols: 3, rows: 2 },
+      { id: '3×3', cols: 3, rows: 3 },
+      { id: '4×3', cols: 4, rows: 3 },
+      { id: '4×4', cols: 4, rows: 4 },
+      { id: '6×3', cols: 6, rows: 3 },
+      { id: '6×6', cols: 6, rows: 6 }
     ];
 
     const STORAGE_KEY = 'german-antonyms-progress-v6';
+    const LANG_STORAGE_KEY = 'german-antonyms-language-v1';
+    const CATEGORY_STORAGE_KEY = 'german-antonyms-category-v1';
 
     const board = document.getElementById('board');
     const statusText = document.getElementById('statusText');
-    const matchedValue = document.getElementById('matchedValue');
+    const toastIcon = document.getElementById('toastIcon');
     const levelValue = document.getElementById('levelValue');
-    const cardsValue = document.getElementById('cardsValue');
-    const progressValue = document.getElementById('progressValue');
+    const categoryValue = document.getElementById('categoryValue');
+    const totalWordsValue = document.getElementById('totalWordsValue');
+    const levelProgressFill = document.getElementById('levelProgressFill');
+    const levelProgressLabel = document.getElementById('levelProgressLabel');
+    const levelProgressPct = document.getElementById('levelProgressPct');
     const shuffleBtn = document.getElementById('shuffleBtn');
     const resetProgressBtn = document.getElementById('resetProgressBtn');
     const themeToggle = document.querySelector('[data-theme-toggle]');
-    const hintText = document.getElementById('hintText');
     const terminalBody = document.getElementById('terminalBody');
+    const levelPillsEl = document.getElementById('levelPills');
+    const langSwitch = document.getElementById('langSwitch');
+    const categorySwitch = document.getElementById('categorySwitch');
 
-    const antonymMap = new Map();
+    if (!Array.isArray(window.allPairs)) {
+      throw new Error('dictionary.js not loaded or window.allPairs is missing');
+    }
 
-    allPairs.forEach(pair => {
-      antonymMap.set(pair.de1, pair.de2);
-      antonymMap.set(pair.de2, pair.de1);
-    });
+    const allPairs = window.allPairs;
 
     let currentLevelIndex = 0;
     let firstSelection = null;
@@ -583,39 +774,35 @@
     let cards = [];
     let lockBoard = false;
     let autoAdvanceTimer = null;
-    let currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    let currentTheme = 'light';
+    let currentLang = 'uk';
+    let currentCategory = 'A1';
     let matchLog = [];
 
-    const shuffle = (array) => {
-      const copy = [...array];
-      for (let i = copy.length - 1; i > 0; i--) {
+    const shuffle = arr => {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
+        [a[i], a[j]] = [a[j], a[i]];
       }
-      return copy;
+      return a;
     };
 
-    const sample = (array, count) => shuffle(array).slice(0, count);
+    const sample = (arr, n) => shuffle(arr).slice(0, n);
 
     function saveProgress() {
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({ currentLevelIndex })
-      );
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ currentLevelIndex }));
     }
 
     function loadProgress() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (!raw) return;
-
-        const parsed = JSON.parse(raw);
-        const savedLevelIndex = Number(parsed.currentLevelIndex);
-
-        if (Number.isInteger(savedLevelIndex) && savedLevelIndex >= 0 && savedLevelIndex < LEVELS.length) {
-          currentLevelIndex = savedLevelIndex;
+        const s = Number(JSON.parse(raw).currentLevelIndex);
+        if (Number.isInteger(s) && s >= 0 && s < LEVELS.length) {
+          currentLevelIndex = s;
         }
-      } catch (error) {
+      } catch {
         currentLevelIndex = 0;
       }
     }
@@ -623,63 +810,131 @@
     function clearProgress() {
       localStorage.removeItem(STORAGE_KEY);
       currentLevelIndex = 0;
-      startBoard('Прогрес скинуто. Починаємо з рівня 3×2.');
+      startBoard('Fortschritt zurückgesetzt. Starte bei 3×2.');
       saveProgress();
     }
 
-    function currentLevel() {
-      return LEVELS[currentLevelIndex];
+    function saveLanguage() {
+      localStorage.setItem(LANG_STORAGE_KEY, currentLang);
     }
 
-    function getLevelLabel() {
-      return `${currentLevel().cols}×${currentLevel().rows}`;
+    function loadLanguage() {
+      const saved = localStorage.getItem(LANG_STORAGE_KEY);
+      if (['en', 'uk', 'hu'].includes(saved)) {
+        currentLang = saved;
+      }
     }
 
-    function getTotalSlots() {
-      return currentLevel().cols * currentLevel().rows;
+    function saveCategory() {
+      localStorage.setItem(CATEGORY_STORAGE_KEY, currentCategory);
     }
 
-    function getPairCount() {
-      return Math.floor(getTotalSlots() / 2);
+    function loadCategory() {
+      const saved = localStorage.getItem(CATEGORY_STORAGE_KEY);
+      if (['A1', 'A2', 'B1'].includes(saved)) {
+        currentCategory = saved;
+      }
     }
 
-    function hasFiller() {
-      return getTotalSlots() % 2 !== 0;
+    const currentLevel = () => LEVELS[currentLevelIndex];
+    const getLevelLabel = () => currentLevel().id;
+    const getTotalSlots = () => currentLevel().cols * currentLevel().rows;
+    const getPairCount = () => Math.floor(getTotalSlots() / 2);
+    const hasFiller = () => getTotalSlots() % 2 !== 0;
+
+    function getFilteredPairs() {
+      return allPairs.filter(item => item.level === currentCategory);
+    }
+
+    function getAntonymMap() {
+      const map = new Map();
+      getFilteredPairs().forEach(p => {
+        map.set(p.de1, p.de2);
+        map.set(p.de2, p.de1);
+      });
+      return map;
     }
 
     function getWordTranslation(word) {
-      const pair = allPairs.find(item => item.de1 === word || item.de2 === word);
-      if (!pair) return '';
-      if (pair.de1 === word) return pair.uk1 || '';
-      if (pair.de2 === word) return pair.uk2 || '';
-      return '';
+      const p = allPairs.find(x => x.de1 === word || x.de2 === word);
+      if (!p) return '';
+      const side = p.de1 === word ? '1' : '2';
+      const key = `${currentLang}${side}`;
+      return p[key] || '';
     }
 
-    function updateBoardLayout() {
-      board.style.gridTemplateColumns = `repeat(${currentLevel().cols}, minmax(0,1fr))`;
+    function renderLanguageSwitcher() {
+      if (!langSwitch) return;
+      langSwitch.querySelectorAll('.lang-btn').forEach(btn => {
+        const isActive = btn.dataset.lang === currentLang;
+        btn.classList.toggle('active', isActive);
+        btn.classList.toggle('default-state', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
     }
 
-    function updateHint() {
-      hintText.textContent = currentLevel().id === '3x3'
-        ? 'Для рівня 3×3 одна клітинка буде порожньою, бо 9 карток неможливо повністю скласти в пари.'
-        : 'Після завершення поточного рівня гра автоматично переведе тебе на наступний розмір поля.';
+    function renderCategorySwitcher() {
+      if (!categorySwitch) return;
+      categorySwitch.querySelectorAll('.segment-btn').forEach(btn => {
+        const isActive = btn.dataset.category === currentCategory;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+      categoryValue.textContent = currentCategory;
+    }
+
+    function setLanguage(lang) {
+      if (!['en', 'uk', 'hu'].includes(lang)) return;
+      currentLang = lang;
+      saveLanguage();
+      renderLanguageSwitcher();
+      renderBoard();
+      renderMatchLog();
+      setToast(`Sprache der Übersetzung: ${lang.toUpperCase()}`, 'accent');
+    }
+
+    function setCategory(category) {
+      if (!['A1', 'A2', 'B1'].includes(category)) return;
+      currentCategory = category;
+      currentLevelIndex = 0;
+      matchedCount = 0;
+      firstSelection = null;
+      matchLog = [];
+      saveCategory();
+      renderCategorySwitcher();
+      renderMatchLog();
+      startBoard(`Niveau ${category} ausgewählt.`, 'accent');
+    }
+
+    function renderLevelPills() {
+      levelPillsEl.innerHTML = LEVELS.map((l, i) => {
+        let cls = 'level-pill';
+        if (i < currentLevelIndex) cls += ' done';
+        if (i === currentLevelIndex) cls += ' active';
+        return `<span class="${cls}">${l.id}</span>`;
+      }).join('');
+    }
+
+    function setToast(msg, type = 'neutral') {
+      statusText.textContent = msg;
+      toastIcon.className = `toast-icon ${type}`;
+      const icons = { neutral: '○', success: '✓', danger: '✕', accent: '◈' };
+      toastIcon.textContent = icons[type] || '○';
     }
 
     function updateStats() {
-      matchedValue.textContent = `${matchedCount} / ${getPairCount()}`;
+      const filteredPairs = getFilteredPairs();
       levelValue.textContent = `${currentLevel().cols} × ${currentLevel().rows}`;
-      cardsValue.textContent = String(getTotalSlots());
-      progressValue.textContent = `${currentLevelIndex + 1} / ${LEVELS.length}`;
-    }
+      categoryValue.textContent = currentCategory;
+      totalWordsValue.textContent = String(filteredPairs.length * 2);
 
-    function updateStatus(message = null) {
-      statusText.textContent = message || 'Оберіть одну картку, а потім натисніть її антонім.';
-      updateStats();
-    }
+      const pairCount = Math.min(getPairCount(), filteredPairs.length);
+      const pct = pairCount > 0 ? Math.round((matchedCount / pairCount) * 100) : 0;
 
-    function resetMatchLog() {
-      matchLog = [];
-      renderMatchLog();
+      levelProgressFill.style.width = `${pct}%`;
+      levelProgressLabel.textContent = `${matchedCount} / ${pairCount}`;
+      levelProgressPct.textContent = `${pct}%`;
+      renderLevelPills();
     }
 
     function addToMatchLog(wordA, wordB) {
@@ -688,134 +943,128 @@
         { word: wordB, translation: getWordTranslation(wordB) }
       ].sort((a, b) => a.word.localeCompare(b.word, 'de'));
 
-      const line = `[${getLevelLabel()}] ${entries[0].word} — ${entries[1].word} (${entries[0].translation} — ${entries[1].translation})`;
-      matchLog.push(line);
+      matchLog.push({
+        category: currentCategory,
+        level: getLevelLabel(),
+        a: entries[0].word,
+        b: entries[1].word
+      });
+
       renderMatchLog();
     }
 
     function renderMatchLog() {
-      if (!matchLog.length) {
-        terminalBody.innerHTML = `<div class="terminal-empty">Поки що немає правильних пар.</div>`;
-        return;
-      }
-
-      terminalBody.innerHTML = matchLog
-        .map(item => `<div class="terminal-line">${item}</div>`)
-        .join('');
+      terminalBody.innerHTML = matchLog.length
+        ? matchLog.map(item => `
+            <div class="log-line">[${item.category} · ${item.level}] ${item.a} (${getWordTranslation(item.a)}) ↔ ${item.b} (${getWordTranslation(item.b)})</div>
+          `).join('')
+        : `<span class="log-empty">Noch keine richtigen Paare.</span>`;
 
       terminalBody.scrollTop = terminalBody.scrollHeight;
     }
 
     function createDeck() {
-      const selectedPairs = sample(allPairs, getPairCount());
+      const sourcePairs = getFilteredPairs();
+      const pairCount = Math.min(getPairCount(), sourcePairs.length);
 
-      const deck = selectedPairs.flatMap(pair => [
-        {
-          id: `${pair.de1}-${crypto.randomUUID()}`,
-          word: pair.de1,
-          matched: false,
-          filler: false
-        },
-        {
-          id: `${pair.de2}-${crypto.randomUUID()}`,
-          word: pair.de2,
-          matched: false,
-          filler: false
-        }
+      const deck = sample(sourcePairs, pairCount).flatMap(p => [
+        { id: `${p.de1}-${crypto.randomUUID()}`, word: p.de1, matched: false, filler: false },
+        { id: `${p.de2}-${crypto.randomUUID()}`, word: p.de2, matched: false, filler: false }
       ]);
 
-      if (hasFiller()) {
-        deck.push({
-          id: `filler-${crypto.randomUUID()}`,
-          word: '',
-          matched: true,
-          filler: true
-        });
+      if ((pairCount * 2) < getTotalSlots()) {
+        const fillerCount = getTotalSlots() - (pairCount * 2);
+        for (let i = 0; i < fillerCount; i++) {
+          deck.push({ id: `filler-${crypto.randomUUID()}`, word: '', matched: true, filler: true });
+        }
+      } else if (hasFiller()) {
+        deck.push({ id: `filler-${crypto.randomUUID()}`, word: '', matched: true, filler: true });
       }
 
-      return shuffle(deck);
+      return shuffle(deck).slice(0, getTotalSlots());
     }
 
     function renderBoard() {
-      updateBoardLayout();
+      board.style.gridTemplateColumns = `repeat(${currentLevel().cols}, minmax(0,1fr))`;
       board.innerHTML = '';
 
-      cards.forEach((cardData, index) => {
-        if (cardData.filler) {
-          const filler = document.createElement('div');
-          filler.className = 'filler';
-          filler.setAttribute('role', 'gridcell');
-          filler.setAttribute('aria-label', `Порожня клітинка ${index + 1}`);
-          filler.textContent = '—';
-          board.appendChild(filler);
+      cards.forEach((c, i) => {
+        if (c.filler) {
+          const f = document.createElement('div');
+          f.className = 'filler';
+          f.setAttribute('role', 'gridcell');
+          f.setAttribute('aria-label', `Leere Zelle ${i + 1}`);
+          board.appendChild(f);
           return;
         }
 
-        const button = document.createElement('button');
-        button.className = 'card';
-        if (cardData.matched) button.classList.add('matched');
-        button.type = 'button';
-        button.dataset.id = cardData.id;
-        button.setAttribute('role', 'gridcell');
-        button.setAttribute('aria-label', `Картка ${index + 1}: ${cardData.word}`);
+        const btn = document.createElement('button');
+        btn.className = 'card' + (c.matched ? ' matched' : '');
+        btn.type = 'button';
+        btn.dataset.id = c.id;
+        btn.setAttribute('role', 'gridcell');
+        btn.setAttribute('aria-label', `Karte ${i + 1}: ${c.word}`);
 
-        const translation = cardData.matched ? getWordTranslation(cardData.word) : '';
+        const tr = c.matched ? getWordTranslation(c.word) : '';
 
-        button.innerHTML = `
-          <span class="word-main">${cardData.word}</span>
-          ${translation ? `<span class="word-translation">${translation}</span>` : ''}
+        btn.innerHTML = `
+          <span class="word-main">${c.word}</span>
+          ${tr ? `<span class="word-translation">${tr}</span>` : ''}
+          ${c.matched ? '<span class="checkmark" aria-hidden="true">✓</span>' : ''}
         `;
 
-        button.addEventListener('click', () => handleCardClick(cardData, button));
-        board.appendChild(button);
+        btn.addEventListener('click', () => handleCardClick(c, btn));
+        board.appendChild(btn);
       });
     }
 
     function clearTempStates() {
-      document.querySelectorAll('.card.selected, .card.wrong').forEach(card => {
-        card.classList.remove('selected', 'wrong');
+      board.querySelectorAll('.card.selected,.card.wrong').forEach(el => {
+        el.classList.remove('selected', 'wrong');
       });
     }
 
-    function startBoard(message) {
+    function startBoard(msg, msgType = 'neutral') {
       clearTimeout(autoAdvanceTimer);
       matchedCount = 0;
       firstSelection = null;
       lockBoard = false;
       cards = createDeck();
-      updateHint();
       renderBoard();
-      updateStatus(message);
+      updateStats();
+      setToast(msg || 'Wähle eine Karte, dann klicke ihr Antonym.', msgType);
       saveProgress();
     }
 
     function moveToNextLevel() {
       if (currentLevelIndex < LEVELS.length - 1) {
-        currentLevelIndex += 1;
-        startBoard(`Вітаю! Відкрито новий рівень ${currentLevel().id}.`);
+        currentLevelIndex++;
+        startBoard('Wähle eine Karte, dann klicke ihr Antonym.', 'neutral');
       } else {
-        startBoard('Ти вже на останньому рівні. Граємо далі на найбільшому полі.');
+        startBoard('Du bist auf dem letzten Level. Weiter so!', 'success');
       }
     }
 
     function markMatched(wordA, wordB) {
-      cards = cards.map(card =>
-        (card.word === wordA || card.word === wordB)
-          ? { ...card, matched: true }
-          : card
-      );
+      cards = cards.map(c => (
+        c.word === wordA || c.word === wordB
+          ? { ...c, matched: true }
+          : c
+      ));
 
-      matchedCount += 1;
+      matchedCount++;
       addToMatchLog(wordA, wordB);
       firstSelection = null;
       renderBoard();
+      updateStats();
 
-      if (matchedCount === getPairCount()) {
-        updateStatus('Рівень пройдено! Завантажую наступний...');
-        clearTimeout(autoAdvanceTimer);
+      const pairCount = Math.min(getPairCount(), getFilteredPairs().length);
+
+      if (matchedCount === pairCount) {
+        setToast('Level abgeschlossen! Nächstes wird geladen…', 'success');
         autoAdvanceTimer = setTimeout(moveToNextLevel, 1100);
       } else {
-        updateStatus('Правильна пара. Тепер переклад видно під обома німецькими словами.');
+        setToast('Richtig! Übersetzung erscheint unter den Wörtern.', 'success');
       }
     }
 
@@ -826,15 +1075,15 @@
         clearTempStates();
         firstSelection = { ...cardData, element: buttonEl };
         buttonEl.classList.add('selected');
-        updateStatus(`Перша картка: ${cardData.word}. Тепер знайди її антонім.`);
+        setToast(`Erste Karte: „${cardData.word}”. Jetzt Antonym wählen.`, 'accent');
         return;
       }
 
       if (firstSelection.id === cardData.id) return;
 
-      const expected = antonymMap.get(firstSelection.word);
+      const antonymMap = getAntonymMap();
 
-      if (expected === cardData.word) {
+      if (antonymMap.get(firstSelection.word) === cardData.word) {
         clearTempStates();
         markMatched(firstSelection.word, cardData.word);
       } else {
@@ -842,40 +1091,56 @@
         buttonEl.classList.add('wrong');
         firstSelection.element.classList.remove('selected');
         firstSelection.element.classList.add('wrong');
-        updateStatus(`Не пара: ${firstSelection.word} і ${cardData.word}.`);
+        setToast(`Kein Paar: „${firstSelection.word}” und „${cardData.word}”.`, 'danger');
 
         setTimeout(() => {
           clearTempStates();
           firstSelection = null;
           lockBoard = false;
-          updateStatus('Спробуй ще раз: обери одну картку, а потім її антонім.');
+          setToast('Versuch es nochmal.', 'neutral');
         }, 700);
       }
     }
 
-    function restartCurrentLevel() {
-      startBoard(`Нове поле для рівня ${currentLevel().id}.`);
-    }
-
     function applyTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
-      themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Увімкнути світлу тему' : 'Увімкнути темну тему');
-      themeToggle.innerHTML = theme === 'dark'
-        ? '<span aria-hidden="true">☀</span>'
+      themeToggle.setAttribute('aria-label', theme === 'light' ? 'Dunkles Thema' : 'Helles Thema');
+      themeToggle.innerHTML = theme === 'light'
+        ? '<span aria-hidden="true">◑</span>'
         : '<span aria-hidden="true">◐</span>';
     }
 
     themeToggle.addEventListener('click', () => {
-      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      currentTheme = currentTheme === 'light' ? 'dark' : 'light';
       applyTheme(currentTheme);
     });
 
-    shuffleBtn.addEventListener('click', restartCurrentLevel);
+    shuffleBtn.addEventListener('click', () => {
+      startBoard('Wähle eine Karte, dann klicke ihr Antonym.', 'neutral');
+    });
+
     resetProgressBtn.addEventListener('click', clearProgress);
+
+    langSwitch?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.lang-btn');
+      if (!btn) return;
+      setLanguage(btn.dataset.lang);
+    });
+
+    categorySwitch?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.segment-btn');
+      if (!btn) return;
+      setCategory(btn.dataset.category);
+    });
 
     applyTheme(currentTheme);
     loadProgress();
-    startBoard(`Продовжуємо з рівня ${currentLevel().id}.`);
+    loadLanguage();
+    loadCategory();
+    renderLanguageSwitcher();
+    renderCategorySwitcher();
+    startBoard('Wähle eine Karte, dann klicke ihr Antonym.', 'neutral');
   </script>
 </body>
+
 </html>
